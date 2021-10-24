@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  --dark-grey: #202024;
+  --black: rgba(9, 9, 10, 1);
+  --grey: hsl(240, 9%, 89%);
+
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+main {
+  background: url(/images/background.png) no-repeat center/cover;
+  width: 100vw;
+  height: 100vh;
+  color: var(--grey);
+  position: relative;
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--dark-grey);
+  position: absolute;
+  z-index: 9;
+}
+
+.loader img {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-65%, -50%);
+}
+
+.loader.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.content {
+  position: absolute;
+  width: 15.5rem;
+  height: 50.75rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+
+  transition: opacity 1s;
+}
+
+.content.visible {
+  opacity: 1;
+}
+
+.content .badge {
+  display: none;
+}
+
+.avatar {
+  position: relative;
+  width: 10rem;
+  margin: 9rem auto 0;
+}
+
+.avatar span {
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  z-index: 1;
+}
+
+.avatar > img {
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+a {
+  color: var(--grey);
+  text-decoration: none;
+  margin-top: 0.25rem;
+
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.content > p {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-top: 3rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contentText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentText h4 {
+  font-size: 1.25rem;
+  margin-top: 3rem;
+  background-image: linear-gradient(to right, #ff008e, #ffcd1e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  /*Chrome*/
+  -webkit-text-fill-color: transparent;
+}
+
+.countdown {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.countdown div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 1.5rem;
+  background: rgba(9, 9, 10, 0.4);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.countdown div p {
+  font-weight: bold;
+  background-image: linear-gradient(to bottom, #ff008e, #ffcd1e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  /*Chrome*/
+  -webkit-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    background: url(https://raw.githubusercontent.com/birobirobiro/nlw-heat-origin-v2/main/images/background.webp)
+      no-repeat center/cover;
+    overflow: hidden;
+  }
+
+  .content {
+    background: url(/images/background.png) no-repeat center/cover;
+    width: 28.75rem;
+    height: 40rem;
+    margin: 0 auto;
+
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .avatar {
+    margin: 4rem auto 0;
+  }
+
+  .content .badge {
+    display: block;
+    position: absolute;
+    z-index: 99999;
+    top: -22%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
